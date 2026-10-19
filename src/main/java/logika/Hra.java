@@ -1,0 +1,56 @@
+package logika;
+
+import java.util.Arrays;
+
+/**
+ * Hlavni trida hry. Nacte data, vytvori prikazy a zpracovava to, co hrac napise.
+ */
+public class Hra {
+
+    private HerniPlan plan;
+    private SeznamPrikazu prikazy;
+
+    public Hra() {
+        // Vytvori svet hry z datovych souboru
+        plan = new HerniPlan();
+        NacitacDat.nacti(plan);
+
+        // Vytvori vsechny prikazy (kazdy prikaz je vlastni trida)
+        prikazy = new SeznamPrikazu();
+        prikazy.vlozPrikaz(new PrikazNapoveda());
+        prikazy.vlozPrikaz(new PrikazKonec(plan));
+    }
+
+    // Uvodni text, ktery se vypise pri spusteni hry
+    public String vratUvod() {
+        return plan.getText("uvod");
+    }
+
+    // Zpracuje jeden radek, ktery hrac napsal, a vrati odpoved hry
+    public String zpracujPrikaz(String radek) {
+        // Velikost pismen nehraje roli, slova se rozdeli podle mezer
+        String[] slova = radek.trim().toLowerCase().split("\\s+");
+        if (slova[0].isEmpty()) {
+            return "";
+        }
+
+        // Prvni slovo je nazev prikazu
+        IPrikaz prikaz = prikazy.vratPrikaz(slova[0]);
+        if (prikaz == null) {
+            return plan.getText("nerozumim");
+        }
+
+        // Zbytek slov jsou parametry prikazu
+        String[] parametry = Arrays.copyOfRange(slova, 1, slova.length);
+        return prikaz.provedPrikaz(parametry);
+    }
+
+    // Vrati true, kdyz hra skoncila
+    public boolean konecHry() {
+        return plan.isKonecHry();
+    }
+
+    public HerniPlan getPlan() {
+        return plan;
+    }
+}

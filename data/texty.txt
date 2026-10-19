@@ -1,0 +1,7 @@
+# Texty a nastaveni hry. Format: klic=hodnota
+# Znaky \n se ve hre zmeni na novy radek.
+
+uvod=========== REGIOJET DO PRAHY ==========\nJe nedele vecer. Studujes v Praze a zitra mas skolu.\nListek na vlak mas jen v mobilu - a ten je uplne vybity. Nabijecku jsi nechal doma.\nStevardka ve vlaku kontroluje listky a kdo listek nema, toho v Breclavi vysadi.\nMusis mobil nabit driv, nez prijde kontrola, a dojet az do Prahy.\nV tasce mas tri rizky od mamy. Napis napoveda pro seznam prikazu.
+
+# Chybove hlasky
+nerozumim=Tomu nerozumim. Napis napoveda.
