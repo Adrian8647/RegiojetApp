@@ -1,0 +1,10 @@
+# Vystup Mavenu
+target/
+
+# IntelliJ IDEA
+out/
+.idea/
+*.iml
+
+# macOS
+.DS_Store
