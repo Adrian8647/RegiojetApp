@@ -1,0 +1,9 @@
+# Lokality. Format: id;nazev;stav_zmeny;popis;popis_po_zmene
+# Kdyz ve hre plati stav_zmeny, vypise se popis_po_zmene. Pomlcka (-) znamena "nic".
+
+nastupiste;Nastupiste 1;-;Stojis na nastupisti 1 na hlavni stanici v Bratislave. Pred tebou stoji zluty vlak RegioJet do Prahy. U dveri ceka stevardka.;-
+lowcost;Vuz Low cost;jarda_dal;Vuz je plny. Naproti sedi Jarda, nohy v ponozkach vylozene na sedadle. Z tasky mu trci nabijecka.;Vuz je plny. Naproti sedi Jarda, nohy v ponozkach vylozene na sedadle, a spokojene prezvykuje rizek.
+standard;Vuz Standard;kufr_odklizen;Tvoje misto 45. V ulicce smerem do Business stoji obrovsky kufr pani Marty. Na konci vozu je kavovar.;Tvoje misto 45. Kufr pani Marty uz lezi na polici a ulicka do Business je volna. Na konci vozu je kavovar.
+wc;WC;-;Male stisnene WC. Na zdi je zasuvka na holici strojky. Da se tu zamknout a schovat.;-
+business;Vuz Business;zasuvka_volna;Manazer telefonuje, zasuvka je obsazena. Kolem jsou kozena sedadla a stolky.;Manazer telefonuje dal, ale zasuvku uz uvolnil. Kolem jsou kozena sedadla a stolky.
+praha;Praha hl. n.;-;Vystoupil jsi na hlavnim nadrazi v Praze.;-

@@ -17,13 +17,15 @@ public class Hra {
 
         // Vytvori vsechny prikazy (kazdy prikaz je vlastni trida)
         prikazy = new SeznamPrikazu();
+        prikazy.vlozPrikaz(new PrikazJdi(plan));
+        prikazy.vlozPrikaz(new PrikazRozhledni(plan));
         prikazy.vlozPrikaz(new PrikazNapoveda());
         prikazy.vlozPrikaz(new PrikazKonec(plan));
     }
 
     // Uvodni text, ktery se vypise pri spusteni hry
     public String vratUvod() {
-        return plan.getText("uvod");
+        return plan.getText("uvod") + "\n\n" + plan.popisAktualnihoProstoru();
     }
 
     // Zpracuje jeden radek, ktery hrac napsal, a vrati odpoved hry

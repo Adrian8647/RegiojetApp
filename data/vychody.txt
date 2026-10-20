@@ -1,0 +1,11 @@
+# Vychody mezi lokalitami. Format: odkud;kam;podminka;text_kdyz_je_zavreno
+# Kazdy smer se pise zvlast, takze cesta tam a zpet = dva radky.
+
+nastupiste;lowcost;-;-
+lowcost;standard;-;-
+lowcost;praha;vlak_v_praze;Vlak jeste nedojel do Prahy. Dvere jsou zavrene.
+standard;lowcost;-;-
+standard;wc;-;-
+standard;business;kufr_odklizen;Ulicku blokuje obrovsky kufr.
+wc;standard;-;-
+business;standard;-;-

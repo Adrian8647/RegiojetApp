@@ -21,6 +21,21 @@ public class NacitacDat {
             String[] casti = radek.split("=", 2);
             plan.getTexty().put(casti[0], casti[1].replace("\\n", "\n"));
         }
+
+        // Lokality
+        for (String radek : nactiRadky("lokality.txt")) {
+            String[] c = radek.split(";");
+            plan.getProstory().put(c[0], new Prostor(c[0], c[1], c[2], c[3], c[4]));
+        }
+
+        // Vychody - kazdy se prida do lokality, ze ktere vede
+        for (String radek : nactiRadky("vychody.txt")) {
+            String[] c = radek.split(";");
+            plan.getProstory().get(c[0]).pridejVychod(new Vychod(c[1], c[2], c[3]));
+        }
+
+        // Startovni lokalita
+        plan.setAktualniProstor(plan.getProstory().get(plan.getText("start")));
     }
 
     // Precte soubor a vrati jeho radky bez prazdnych radku a komentaru (#)

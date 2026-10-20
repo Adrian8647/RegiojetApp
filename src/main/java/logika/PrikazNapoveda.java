@@ -10,6 +10,8 @@ public class PrikazNapoveda implements IPrikaz {
     @Override
     public String provedPrikaz(String... parametry) {
         return "Prikazy (pis bez diakritiky):\n"
+                + "  jdi <lokalita>             presun (nastupiste, lowcost, standard, wc, business, praha)\n"
+                + "  rozhledni se               znovu vypise popis lokality\n"
                 + "  napoveda                   tento seznam\n"
                 + "  konec                      ukonci hru";
     }
