@@ -6,7 +6,8 @@ uvod=========== REGIOJET DO PRAHY ==========\nJe nedele vecer. Studujes v Praze 
 # Odkud hra zacina
 start=nastupiste
 
-# Chybove hlasky
+# Chybove hlasky ({} se nahradi nazvem veci)
 nerozumim=Tomu nerozumim. Napis napoveda.
 co_presne=Co presne?
+nemas=Nemas {}.
 nedostanes=Tam se odsud nedostanes.

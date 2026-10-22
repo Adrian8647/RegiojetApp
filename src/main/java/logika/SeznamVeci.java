@@ -1,0 +1,50 @@
+package logika;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * Seznam veci i s poctem kusu (napr. rizek 3x).
+ * Pouziva ho inventar hrace i kazda lokalita.
+ */
+public class SeznamVeci {
+
+    // Klic je id predmetu, hodnota je pocet kusu
+    private Map<String, Integer> veci = new LinkedHashMap<>();
+
+    // Prida jeden kus predmetu
+    public void pridej(String id) {
+        pridej(id, 1);
+    }
+
+    // Prida vic kusu predmetu najednou
+    public void pridej(String id, int kolik) {
+        veci.put(id, pocet(id) + kolik);
+    }
+
+    // Odebere jeden kus predmetu, kdyz uz zadny nezbyde, smaze ho uplne
+    public void odeber(String id) {
+        int zbyva = pocet(id) - 1;
+        if (zbyva <= 0) {
+            veci.remove(id);
+        } else {
+            veci.put(id, zbyva);
+        }
+    }
+
+    // Vrati kolik kusu predmetu tu je (0 kdyz zadny)
+    public int pocet(String id) {
+        return veci.getOrDefault(id, 0);
+    }
+
+    // Zjisti, jestli tu predmet je
+    public boolean obsahuje(String id) {
+        return pocet(id) > 0;
+    }
+
+    // Vrati id vsech predmetu v seznamu
+    public Set<String> getIdVeci() {
+        return veci.keySet();
+    }
+}

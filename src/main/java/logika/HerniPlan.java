@@ -15,10 +15,12 @@ public class HerniPlan {
 
     // ---- Data nactena ze souboru ve slozce data (klic je vzdy id) ----
     private Map<String, Prostor> prostory = new LinkedHashMap<>();
+    private Map<String, Predmet> predmety = new LinkedHashMap<>();
     private Map<String, String> texty = new HashMap<>();
 
     // ---- Stav hry, ktery se meni a uklada ----
     private Prostor aktualniProstor;
+    private SeznamVeci batoh = new SeznamVeci();        // inventar hrace
     private Set<String> stavy = new LinkedHashSet<>();  // splnene veci, napr. "najedeny", "kufr_odklizen"
     private boolean konecHry = false;
 
@@ -48,10 +50,24 @@ public class HerniPlan {
         return jeStav(podminka);
     }
 
-    // Sestavi cely popis aktualni lokality (nazev, popis, vychody)
+    // Vrati "nabity" nebo "vybity" podle stavu mobilu
+    public String stavMobilu() {
+        if (jeStav("mobil_nabity")) {
+            return "nabity";
+        }
+        return "vybity";
+    }
+
+    // Sestavi cely popis aktualni lokality (nazev, popis, veci, vychody)
     public String popisAktualnihoProstoru() {
         Prostor p = aktualniProstor;
         String text = p.getNazev().toUpperCase() + "\n" + p.getPopis(this);
+
+        // predmety, ktere tu lezi (u vic kusu i s poctem)
+        String seznamVeci = p.getVeci().getIdVeci().stream()
+                .map(id -> nazevSPoctem(p.getVeci(), id))
+                .collect(Collectors.joining(", "));
+        text += radekSeznamu("Predmety", seznamVeci);
 
         // kam se odsud da jit
         String seznamVychodu = p.getVychody().stream()
@@ -59,6 +75,15 @@ public class HerniPlan {
                 .collect(Collectors.joining(", "));
         text += radekSeznamu("Vychody", seznamVychodu);
         return text;
+    }
+
+    // Vrati nazev predmetu, u vic kusu i s poctem, napr. "rizek (3x)"
+    private String nazevSPoctem(SeznamVeci veci, String id) {
+        String nazev = predmety.get(id).getNazev();
+        if (veci.pocet(id) > 1) {
+            nazev += " (" + veci.pocet(id) + "x)";
+        }
+        return nazev;
     }
 
     // Vrati radek "Nadpis: a, b, c", kdyz je seznam prazdny vrati prazdny text
@@ -75,6 +100,10 @@ public class HerniPlan {
         return prostory;
     }
 
+    public Map<String, Predmet> getPredmety() {
+        return predmety;
+    }
+
     public Map<String, String> getTexty() {
         return texty;
     }
@@ -85,6 +114,10 @@ public class HerniPlan {
 
     public void setAktualniProstor(Prostor aktualniProstor) {
         this.aktualniProstor = aktualniProstor;
+    }
+
+    public SeznamVeci getBatoh() {
+        return batoh;
     }
 
     public boolean isKonecHry() {

@@ -34,6 +34,19 @@ public class NacitacDat {
             plan.getProstory().get(c[0]).pridejVychod(new Vychod(c[1], c[2], c[3]));
         }
 
+        // Predmety - a rovnou se polozi tam, kde maji byt na zacatku
+        for (String radek : nactiRadky("predmety.txt")) {
+            String[] c = radek.split(";");
+            plan.getPredmety().put(c[0], new Predmet(c[0], c[1], c[2]));
+            String umisteni = c[3];
+            int pocet = Integer.parseInt(c[4]);
+            if (umisteni.equals("inventar")) {
+                plan.getBatoh().pridej(c[0], pocet);
+            } else if (!umisteni.equals("-")) {
+                plan.getProstory().get(umisteni).getVeci().pridej(c[0], pocet);
+            }
+        }
+
         // Startovni lokalita
         plan.setAktualniProstor(plan.getProstory().get(plan.getText("start")));
     }

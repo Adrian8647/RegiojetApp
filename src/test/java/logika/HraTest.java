@@ -2,6 +2,7 @@ package logika;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,6 +33,8 @@ public class HraTest {
     @Test
     void hraZacinaNaNastupisti() {
         assertEquals("nastupiste", plan.getAktualniProstor().getId());
+        assertTrue(plan.getBatoh().obsahuje("mobil"));
+        assertEquals(3, plan.getBatoh().pocet("rizek"));
         assertFalse(hra.konecHry());
     }
 

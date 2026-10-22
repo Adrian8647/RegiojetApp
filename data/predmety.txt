@@ -1,0 +1,8 @@
+# Predmety. Format: id;nazev;popis;umisteni;pocet
+# umisteni = id lokality, "inventar" (hrac ho ma od zacatku) nebo "-" (zatim neni nikde)
+
+mobil;mobil;Tvuj mobil. Mas v nem jediny listek na vlak.;inventar;1
+rizek;rizek;Rizek od mamy zabaleny v alobalu. Voni na cely vagon.;inventar;3
+nabijecka;nabijecka;Jardova nabijecka na mobil. Chce to funkcni zasuvku.;-;1
+kelimek;kelimek;Prazdny papirovy kelimek. Hodil by se do kavovaru.;business;1
+kava;kava;Horka kava v papirovem kelimku. Manazer by ji ocenil.;-;1

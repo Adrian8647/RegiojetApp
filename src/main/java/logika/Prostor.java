@@ -14,6 +14,7 @@ public class Prostor {
     private String popis;
     private String popisPoZmene;
     private List<Vychod> vychody = new ArrayList<>();
+    private SeznamVeci veci = new SeznamVeci();   // predmety, ktere tu lezi
 
     public Prostor(String id, String nazev, String stavZmeny, String popis, String popisPoZmene) {
         this.id = id;
@@ -54,5 +55,9 @@ public class Prostor {
 
     public List<Vychod> getVychody() {
         return vychody;
+    }
+
+    public SeznamVeci getVeci() {
+        return veci;
     }
 }

@@ -19,6 +19,9 @@ public class Hra {
         prikazy = new SeznamPrikazu();
         prikazy.vlozPrikaz(new PrikazJdi(plan));
         prikazy.vlozPrikaz(new PrikazRozhledni(plan));
+        prikazy.vlozPrikaz(new PrikazProzkoumej(plan));
+        prikazy.vlozPrikaz(new PrikazVezmi(plan));
+        prikazy.vlozPrikaz(new PrikazInventar(plan));
         prikazy.vlozPrikaz(new PrikazNapoveda());
         prikazy.vlozPrikaz(new PrikazKonec(plan));
     }
