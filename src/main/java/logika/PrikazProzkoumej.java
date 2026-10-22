@@ -1,7 +1,7 @@
 package logika;
 
 /**
- * Prikaz "prozkoumej" - vypise popis predmetu.
+ * Prikaz "prozkoumej" - vypise popis predmetu nebo objektu.
  */
 public class PrikazProzkoumej implements IPrikaz {
 
@@ -28,6 +28,12 @@ public class PrikazProzkoumej implements IPrikaz {
                 return predmet.getPopis() + " Je " + plan.stavMobilu() + ".";
             }
             return predmet.getPopis();
+        }
+
+        // Objekt v teto lokalite
+        Objekt objekt = plan.najdiObjektTady(nazev);
+        if (objekt != null) {
+            return objekt.getPopis(plan);
         }
 
         return "Nic takoveho tu nevidis.";

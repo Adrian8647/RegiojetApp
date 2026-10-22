@@ -12,7 +12,7 @@ public class PrikazNapoveda implements IPrikaz {
         return "Prikazy (pis bez diakritiky):\n"
                 + "  jdi <lokalita>             presun (nastupiste, lowcost, standard, wc, business, praha)\n"
                 + "  rozhledni se               znovu vypise popis lokality\n"
-                + "  prozkoumej <vec>           popis predmetu\n"
+                + "  prozkoumej <vec>           popis predmetu nebo objektu\n"
                 + "  vezmi <predmet>            zvedne predmet\n"
                 + "  inventar                   co mas u sebe\n"
                 + "  napoveda                   tento seznam\n"

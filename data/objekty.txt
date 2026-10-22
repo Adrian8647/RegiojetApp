@@ -1,0 +1,8 @@
+# Objekty v lokalitach (nedaji se vzit). Format: id;nazev;lokalita;stav_zmeny;popis;popis_po_zmene
+
+kufr;kufr;standard;kufr_odklizen;Obrovsky kufr pani Marty. Blokuje ulicku do Business. Na prazdny zaludek ho nezvednes.;Kufr pani Marty uz lezi na polici.
+zasuvka_s;zasuvka;standard;-;Stara zasuvka u sedadla. Nefunguje.;-
+kavovar;kavovar;standard;-;Kavovar pro cestujici. Potrebujes ale vlastni kelimek.;-
+sedadlo;sedadlo;standard;vlak_v_praze;Tvoje sedadlo cislo 45. Sednout si ale muzes jen s platnym listkem.;Tvoje sedadlo cislo 45. Vlak uz stoji v Praze.
+zasuvka_wc;zasuvka;wc;-;Zasuvka na holici strojky. Mobil se z ni nenabije.;-
+zasuvka_b;zasuvka;business;zasuvka_volna;Jedina funkcni zasuvka ve vlaku. Manazer v ni ma zapojeny notebook.;Jedina funkcni zasuvka ve vlaku. Je volna.

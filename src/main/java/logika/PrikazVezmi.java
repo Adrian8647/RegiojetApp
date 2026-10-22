@@ -26,6 +26,11 @@ public class PrikazVezmi implements IPrikaz {
             plan.getBatoh().pridej(nazev);
             return "Vzal jsi " + plan.getPredmety().get(nazev).getNazev() + ".";
         }
+
+        // Objekty (kufr, kavovar...) si vzit nejde
+        if (plan.najdiObjektTady(nazev) != null) {
+            return "To si vzit nemuzes.";
+        }
         return "Takovy predmet tu neni.";
     }
 

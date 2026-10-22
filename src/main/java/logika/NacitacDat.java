@@ -47,6 +47,12 @@ public class NacitacDat {
             }
         }
 
+        // Objekty v lokalitach
+        for (String radek : nactiRadky("objekty.txt")) {
+            String[] c = radek.split(";");
+            plan.getObjekty().put(c[0], new Objekt(c[0], c[1], c[2], c[3], c[4], c[5]));
+        }
+
         // Startovni lokalita
         plan.setAktualniProstor(plan.getProstory().get(plan.getText("start")));
     }

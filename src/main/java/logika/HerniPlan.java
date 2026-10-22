@@ -16,6 +16,7 @@ public class HerniPlan {
     // ---- Data nactena ze souboru ve slozce data (klic je vzdy id) ----
     private Map<String, Prostor> prostory = new LinkedHashMap<>();
     private Map<String, Predmet> predmety = new LinkedHashMap<>();
+    private Map<String, Objekt> objekty = new LinkedHashMap<>();
     private Map<String, String> texty = new HashMap<>();
 
     // ---- Stav hry, ktery se meni a uklada ----
@@ -58,7 +59,16 @@ public class HerniPlan {
         return "vybity";
     }
 
-    // Sestavi cely popis aktualni lokality (nazev, popis, veci, vychody)
+    // Najde objekt podle nazvu, ale jen v aktualni lokalite
+    public Objekt najdiObjektTady(String nazev) {
+        return objekty.values().stream()
+                .filter(objekt -> objekt.getNazev().equals(nazev))
+                .filter(objekt -> objekt.getLokalita().equals(aktualniProstor.getId()))
+                .findFirst()
+                .orElse(null);
+    }
+
+    // Sestavi cely popis aktualni lokality (nazev, popis, veci, objekty, vychody)
     public String popisAktualnihoProstoru() {
         Prostor p = aktualniProstor;
         String text = p.getNazev().toUpperCase() + "\n" + p.getPopis(this);
@@ -68,6 +78,13 @@ public class HerniPlan {
                 .map(id -> nazevSPoctem(p.getVeci(), id))
                 .collect(Collectors.joining(", "));
         text += radekSeznamu("Predmety", seznamVeci);
+
+        // objekty v teto lokalite
+        String seznamObjektu = objekty.values().stream()
+                .filter(objekt -> objekt.getLokalita().equals(p.getId()))
+                .map(objekt -> objekt.getNazev())
+                .collect(Collectors.joining(", "));
+        text += radekSeznamu("Objekty", seznamObjektu);
 
         // kam se odsud da jit
         String seznamVychodu = p.getVychody().stream()
@@ -102,6 +119,10 @@ public class HerniPlan {
 
     public Map<String, Predmet> getPredmety() {
         return predmety;
+    }
+
+    public Map<String, Objekt> getObjekty() {
+        return objekty;
     }
 
     public Map<String, String> getTexty() {
