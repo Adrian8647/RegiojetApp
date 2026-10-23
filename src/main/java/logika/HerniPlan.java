@@ -17,6 +17,7 @@ public class HerniPlan {
     private Map<String, Prostor> prostory = new LinkedHashMap<>();
     private Map<String, Predmet> predmety = new LinkedHashMap<>();
     private Map<String, Objekt> objekty = new LinkedHashMap<>();
+    private Map<String, Postava> postavy = new LinkedHashMap<>();
     private Map<String, String> texty = new HashMap<>();
 
     // ---- Stav hry, ktery se meni a uklada ----
@@ -68,7 +69,16 @@ public class HerniPlan {
                 .orElse(null);
     }
 
-    // Sestavi cely popis aktualni lokality (nazev, popis, veci, objekty, vychody)
+    // Najde postavu podle id, ale jen v aktualni lokalite
+    public Postava najdiPostavuTady(String id) {
+        Postava postava = postavy.get(id);
+        if (postava != null && postava.getLokalita().equals(aktualniProstor.getId())) {
+            return postava;
+        }
+        return null;
+    }
+
+    // Sestavi cely popis aktualni lokality (nazev, popis, veci, objekty, postavy, vychody)
     public String popisAktualnihoProstoru() {
         Prostor p = aktualniProstor;
         String text = p.getNazev().toUpperCase() + "\n" + p.getPopis(this);
@@ -85,6 +95,13 @@ public class HerniPlan {
                 .map(objekt -> objekt.getNazev())
                 .collect(Collectors.joining(", "));
         text += radekSeznamu("Objekty", seznamObjektu);
+
+        // postavy v teto lokalite
+        String seznamPostav = postavy.values().stream()
+                .filter(postava -> postava.getLokalita().equals(p.getId()))
+                .map(postava -> postava.getId())
+                .collect(Collectors.joining(", "));
+        text += radekSeznamu("Postavy", seznamPostav);
 
         // kam se odsud da jit
         String seznamVychodu = p.getVychody().stream()
@@ -123,6 +140,10 @@ public class HerniPlan {
 
     public Map<String, Objekt> getObjekty() {
         return objekty;
+    }
+
+    public Map<String, Postava> getPostavy() {
+        return postavy;
     }
 
     public Map<String, String> getTexty() {

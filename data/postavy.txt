@@ -1,0 +1,6 @@
+# Postavy (NPC). Format: id;jmeno;popis;lokalita;stav_zmeny;replika_pred;replika_po
+
+stevardka;Stevardka;Usmevava stevardka ve zlute uniforme.;nastupiste;vlak_v_praze;Listky kontroluji az ve vlaku. Do Breclavi projdu cely vlak a kdo nema listek, ten v Breclavi vystupuje!;Dekuji, listek je v poradku. Prijemny vecer v Praze!
+jarda;Jarda;Hladovy cesky turista, nohy v ponozkach vylozene na sedadle.;lowcost;jarda_dal;Hele, to voni jak rizek! Za jeden ti pujcim nabijecku.;Diky za rizek, kamo. Nabijecku si klidne nech.
+marta;pani Marta;Starsi pani s obrovskym kufrem.;standard;kufr_odklizen;Mlady pane, nepomohl byste mi dat ten kufr na polici? Ja na to nemam silu.;Dekuji vam, mlady pane! Jste zlaty.
+manazer;Manazer;Manazer v obleku, porad telefonuje.;business;zasuvka_volna;Ted ne, mam dulezity hovor! Bez kafe tu zasuvku nepustim.;...ano, ano, posilam to hned... (manazer dal telefonuje)

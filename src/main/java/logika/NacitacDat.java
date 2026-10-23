@@ -53,6 +53,12 @@ public class NacitacDat {
             plan.getObjekty().put(c[0], new Objekt(c[0], c[1], c[2], c[3], c[4], c[5]));
         }
 
+        // Postavy
+        for (String radek : nactiRadky("postavy.txt")) {
+            String[] c = radek.split(";");
+            plan.getPostavy().put(c[0], new Postava(c[0], c[1], c[2], c[3], c[4], c[5], c[6]));
+        }
+
         // Startovni lokalita
         plan.setAktualniProstor(plan.getProstory().get(plan.getText("start")));
     }
