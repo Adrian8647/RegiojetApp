@@ -2,9 +2,16 @@
 # Znaky \n se ve hre zmeni na novy radek.
 
 uvod=========== REGIOJET DO PRAHY ==========\nJe nedele vecer. Studujes v Praze a zitra mas skolu.\nListek na vlak mas jen v mobilu - a ten je uplne vybity. Nabijecku jsi nechal doma.\nStevardka ve vlaku kontroluje listky a kdo listek nema, toho v Breclavi vysadi.\nMusis mobil nabit driv, nez prijde kontrola, a dojet az do Prahy.\nV tasce mas tri rizky od mamy. Napis napoveda pro seznam prikazu.
+vyhra=VYHRA! Vystoupil jsi v Praze s nabitym mobilem a platnym listkem. Zitra stihnes skolu. Diky za hrani!
+prehra=PROHRA! Do vozu vchazi stevardka: "Listky, prosim." Tvuj mobil je porad vybity a listek neukazes.\nV Breclavi musis vystoupit. Konec hry.
 
-# Odkud hra zacina
+# Odkud hra zacina a kde konci vyhrou
 start=nastupiste
+cil=praha
+
+# Pocet presunu do kontroly a kolik presunu navic da schovani na WC
+limit=8
+bonus_wc=4
 
 # Chybove hlasky ({} se nahradi nazvem veci)
 nerozumim=Tomu nerozumim. Napis napoveda.

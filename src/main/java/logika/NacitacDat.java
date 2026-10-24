@@ -65,8 +65,9 @@ public class NacitacDat {
             plan.getPravidla().add(new Pravidlo(c[0], c[1], c[2], c[3], c[4], c[5], c[6]));
         }
 
-        // Startovni lokalita
+        // Startovni lokalita a limit presunu
         plan.setAktualniProstor(plan.getProstory().get(plan.getText("start")));
+        plan.setLimit(Integer.parseInt(plan.getText("limit")));
     }
 
     // Precte soubor a vrati jeho radky bez prazdnych radku a komentaru (#)

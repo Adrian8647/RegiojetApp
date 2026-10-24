@@ -90,4 +90,44 @@ public class HraTest {
         assertEquals("Zasuvka je obsazena.", odpoved);
         assertFalse(plan.jeStav("mobil_nabity"));
     }
+
+    @Test
+    void poVycerpaniPresunuHracProhraje() {
+        hraj("jdi lowcost");
+        // 8 presunu tam a zpet mezi vozy, limit je 8
+        for (int i = 0; i < 4; i++) {
+            hraj("jdi standard", "jdi lowcost");
+        }
+
+        assertTrue(hra.konecHry());
+        assertEquals(0, plan.getZbyvajiciPresuny());
+    }
+
+    @Test
+    void schovaniNaWcPridaPresunyJenJednou() {
+        hraj("jdi lowcost", "jdi standard", "jdi wc");
+        int predSchovanim = plan.getZbyvajiciPresuny();
+
+        hraj("schovej se");
+        assertEquals(predSchovanim + 4, plan.getZbyvajiciPresuny());
+
+        assertEquals("Stevardka uz vi, kde te hledat.", hraj("schovej se"));
+        assertEquals(predSchovanim + 4, plan.getZbyvajiciPresuny());
+    }
+
+    @Test
+    void celaHraAzDoVyhry() {
+        String odpoved = hraj(
+                "jdi lowcost", "dej rizek jarda",
+                "jdi standard", "snez rizek", "zvedni kufr",
+                "jdi business", "vezmi kelimek",
+                "jdi standard", "pouzij kelimek kavovar",
+                "jdi business", "dej kava manazer", "pouzij nabijecka zasuvka",
+                "jdi standard", "sedni",
+                "jdi lowcost", "jdi praha");
+
+        assertTrue(hra.konecHry());
+        assertTrue(odpoved.contains("VYHRA!"));
+        assertEquals("praha", plan.getAktualniProstor().getId());
+    }
 }

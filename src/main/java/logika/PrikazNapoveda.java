@@ -20,6 +20,7 @@ public class PrikazNapoveda implements IPrikaz {
                 + "  snez rizek                 najis se\n"
                 + "  zvedni kufr                zvednes kufr\n"
                 + "  sedni                      sednes si na sve misto\n"
+                + "  schovej se                 schovas se na WC\n"
                 + "  inventar                   co mas u sebe\n"
                 + "  napoveda                   tento seznam\n"
                 + "  konec                      ukonci hru";

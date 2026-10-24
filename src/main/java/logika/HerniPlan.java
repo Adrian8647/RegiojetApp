@@ -27,6 +27,8 @@ public class HerniPlan {
     private Prostor aktualniProstor;
     private SeznamVeci batoh = new SeznamVeci();        // inventar hrace
     private Set<String> stavy = new LinkedHashSet<>();  // splnene veci, napr. "najedeny", "kufr_odklizen"
+    private int pocitadlo = 0;                          // kolik presunu uz hrac udelal
+    private int limit = 0;                              // kolik presunu ma do kontroly
     private boolean konecHry = false;
 
     // Vrati text z texty.txt podle klice
@@ -164,6 +166,16 @@ public class HerniPlan {
         return "\n" + nadpis + ": " + seznam;
     }
 
+    // Zvysi pocitadlo presunu o jedna
+    public void pridejPresun() {
+        pocitadlo++;
+    }
+
+    // Kolik presunu jeste zbyva do kontroly
+    public int getZbyvajiciPresuny() {
+        return limit - pocitadlo;
+    }
+
     // ---- Gettery a settery ----
 
     public Map<String, Prostor> getProstory() {
@@ -200,6 +212,18 @@ public class HerniPlan {
 
     public SeznamVeci getBatoh() {
         return batoh;
+    }
+
+    public int getPocitadlo() {
+        return pocitadlo;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 
     public boolean isKonecHry() {
