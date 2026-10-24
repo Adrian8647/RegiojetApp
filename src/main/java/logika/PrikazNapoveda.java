@@ -17,6 +17,9 @@ public class PrikazNapoveda implements IPrikaz {
                 + "  pouzij <predmet> <objekt>  pouzije predmet na objekt\n"
                 + "  dej <predmet> <postava>    da predmet postave\n"
                 + "  mluv <postava>             rozhovor s postavou\n"
+                + "  snez rizek                 najis se\n"
+                + "  zvedni kufr                zvednes kufr\n"
+                + "  sedni                      sednes si na sve misto\n"
                 + "  inventar                   co mas u sebe\n"
                 + "  napoveda                   tento seznam\n"
                 + "  konec                      ukonci hru";

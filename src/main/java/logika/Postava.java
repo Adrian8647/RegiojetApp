@@ -47,4 +47,9 @@ public class Postava {
     public String getLokalita() {
         return lokalita;
     }
+
+    // Postava se muze presunout (stevardka prijde na konci do vozu Standard)
+    public void setLokalita(String lokalita) {
+        this.lokalita = lokalita;
+    }
 }

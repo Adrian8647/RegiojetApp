@@ -64,6 +64,14 @@ public class HraTest {
     }
 
     @Test
+    void hladovyHracKufrNezvedne() {
+        assertEquals("Nevladzes, od rana jsi nejedl.", hraj("jdi lowcost", "jdi standard", "zvedni kufr"));
+
+        hraj("snez rizek", "zvedni kufr");
+        assertTrue(plan.jeStav("kufr_odklizen"));
+    }
+
+    @Test
     void jardaDaNabijeckuZaRizekJenJednou() {
         hraj("jdi lowcost", "dej rizek jarda");
         assertTrue(plan.getBatoh().obsahuje("nabijecka"));
@@ -72,5 +80,14 @@ public class HraTest {
         // Druhy rizek uz Jarda nechce a hraci zustane
         hraj("dej rizek jarda");
         assertEquals(2, plan.getBatoh().pocet("rizek"));
+    }
+
+    @Test
+    void obsazenaZasuvkaMobilNenabije() {
+        String odpoved = hraj("jdi lowcost", "dej rizek jarda", "jdi standard", "snez rizek",
+                "zvedni kufr", "jdi business", "pouzij nabijecka zasuvka");
+
+        assertEquals("Zasuvka je obsazena.", odpoved);
+        assertFalse(plan.jeStav("mobil_nabity"));
     }
 }
