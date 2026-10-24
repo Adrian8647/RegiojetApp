@@ -1,8 +1,10 @@
 package logika;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -18,6 +20,7 @@ public class HerniPlan {
     private Map<String, Predmet> predmety = new LinkedHashMap<>();
     private Map<String, Objekt> objekty = new LinkedHashMap<>();
     private Map<String, Postava> postavy = new LinkedHashMap<>();
+    private List<Pravidlo> pravidla = new ArrayList<>();
     private Map<String, String> texty = new HashMap<>();
 
     // ---- Stav hry, ktery se meni a uklada ----
@@ -76,6 +79,39 @@ public class HerniPlan {
             return postava;
         }
         return null;
+    }
+
+    // Najde pravidlo pro pouzij/dej podle predmetu a cile, kdyz neexistuje vrati null
+    public Pravidlo najdiPravidlo(String typ, String predmet, String cil) {
+        return pravidla.stream()
+                .filter(pravidlo -> pravidlo.getTyp().equals(typ))
+                .filter(pravidlo -> pravidlo.getPredmet().equals(predmet))
+                .filter(pravidlo -> pravidlo.getCil().equals(cil))
+                .findFirst()
+                .orElse(null);
+    }
+
+    // Provede efekty z pravidla, napr. "ziskej:nabijecka,stav:jarda_dal"
+    public void provedEfekty(String efekty, String pouzityPredmet) {
+        if (efekty.equals("-")) {
+            return;
+        }
+        for (String efekt : efekty.split(",")) {
+            String[] casti = efekt.split(":");
+            String druh = casti[0];
+            String hodnota = casti[1];
+            if (druh.equals("ziskej")) {
+                // hrac dostane novy predmet
+                batoh.pridej(hodnota);
+            } else if (druh.equals("zmen")) {
+                // pouzity predmet se zmeni na jiny (kelimek -> kava)
+                batoh.odeber(pouzityPredmet);
+                batoh.pridej(hodnota);
+            } else if (druh.equals("stav")) {
+                // zapise se novy stav hry
+                pridejStav(hodnota);
+            }
+        }
     }
 
     // Sestavi cely popis aktualni lokality (nazev, popis, veci, objekty, postavy, vychody)
@@ -144,6 +180,10 @@ public class HerniPlan {
 
     public Map<String, Postava> getPostavy() {
         return postavy;
+    }
+
+    public List<Pravidlo> getPravidla() {
+        return pravidla;
     }
 
     public Map<String, String> getTexty() {

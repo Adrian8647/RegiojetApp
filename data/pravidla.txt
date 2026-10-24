@@ -1,0 +1,12 @@
+# Pravidla pro prikazy "pouzij" a "dej".
+# Format: typ;predmet;cil;podminka;text_kdyz_podminka_neplati;efekty;text
+# podminka: "-" = zadna, "stav" = musi platit, "!stav" = nesmi platit
+# efekty (oddelene carkou): ziskej:predmet / zmen:predmet (pouzity predmet se zmeni) / stav:nazev
+# U prikazu "dej" se dany predmet vzdy odebere z inventare.
+
+pouzij;kelimek;kavovar;-;-;zmen:kava;Kavovar zabzucel a do kelimku natekla horka kava. Mas kavu.
+pouzij;nabijecka;zasuvka_b;zasuvka_volna;Zasuvka je obsazena.;stav:mobil_nabity;Zapojil jsi nabijecku do zasuvky. Mobil se rozsvitil a nabil. Listek uz jde ukazat!
+pouzij;nabijecka;zasuvka_s;-;-;-;Zasuvka nefunguje. Mobil se nenabiji.
+pouzij;nabijecka;zasuvka_wc;-;-;-;Tahle zasuvka je jen na holici strojky. Mobil se z ni nenabije.
+dej;rizek;jarda;!jarda_dal;Jarda: "Diky, ale jeden rizek mi stacil.";ziskej:nabijecka,stav:jarda_dal;Jarda ti poda nabijecku. Mas nabijecku.
+dej;kava;manazer;-;-;stav:zasuvka_volna;Manazer si vezme kavu, odpoji notebook a uvolni zasuvku.

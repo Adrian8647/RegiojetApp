@@ -14,6 +14,8 @@ public class PrikazNapoveda implements IPrikaz {
                 + "  rozhledni se               znovu vypise popis lokality\n"
                 + "  prozkoumej <vec>           popis predmetu, objektu nebo postavy\n"
                 + "  vezmi <predmet>            zvedne predmet\n"
+                + "  pouzij <predmet> <objekt>  pouzije predmet na objekt\n"
+                + "  dej <predmet> <postava>    da predmet postave\n"
                 + "  mluv <postava>             rozhovor s postavou\n"
                 + "  inventar                   co mas u sebe\n"
                 + "  napoveda                   tento seznam\n"

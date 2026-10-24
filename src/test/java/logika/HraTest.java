@@ -62,4 +62,15 @@ public class HraTest {
         assertEquals("Ulicku blokuje obrovsky kufr.", odpoved);
         assertEquals("standard", plan.getAktualniProstor().getId());
     }
+
+    @Test
+    void jardaDaNabijeckuZaRizekJenJednou() {
+        hraj("jdi lowcost", "dej rizek jarda");
+        assertTrue(plan.getBatoh().obsahuje("nabijecka"));
+        assertEquals(2, plan.getBatoh().pocet("rizek"));
+
+        // Druhy rizek uz Jarda nechce a hraci zustane
+        hraj("dej rizek jarda");
+        assertEquals(2, plan.getBatoh().pocet("rizek"));
+    }
 }

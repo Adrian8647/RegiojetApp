@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testy herniho planu: podminky a hledani v aktualni lokalite.
+ * Testy herniho planu: podminky, efekty pravidel a hledani v aktualni lokalite.
  */
 public class HerniPlanTest {
 
@@ -34,6 +34,30 @@ public class HerniPlanTest {
         plan.pridejStav("najedeny");
         assertTrue(plan.platiPodminka("najedeny"));
         assertFalse(plan.platiPodminka("!najedeny"));
+    }
+
+    @Test
+    void efektZiskejAStav() {
+        plan.provedEfekty("ziskej:nabijecka,stav:jarda_dal", "rizek");
+
+        assertTrue(plan.getBatoh().obsahuje("nabijecka"));
+        assertTrue(plan.jeStav("jarda_dal"));
+    }
+
+    @Test
+    void efektZmenVymeniPredmet() {
+        plan.getBatoh().pridej("kelimek");
+        plan.provedEfekty("zmen:kava", "kelimek");
+
+        assertFalse(plan.getBatoh().obsahuje("kelimek"));
+        assertTrue(plan.getBatoh().obsahuje("kava"));
+    }
+
+    @Test
+    void najdePravidloJenProSpravnouKombinaci() {
+        assertEquals("kavovar", plan.najdiPravidlo("pouzij", "kelimek", "kavovar").getCil());
+        assertNull(plan.najdiPravidlo("pouzij", "rizek", "kavovar"));
+        assertNull(plan.najdiPravidlo("dej", "kelimek", "kavovar"));
     }
 
     @Test
