@@ -8,3 +8,6 @@ out/
 
 # macOS
 .DS_Store
+
+# Ulozena pozice hry (vytvori ji prikaz "uloz")
+ulozena_hra.txt

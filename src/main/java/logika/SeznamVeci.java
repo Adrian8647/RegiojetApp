@@ -3,6 +3,7 @@ package logika;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Seznam veci i s poctem kusu (napr. rizek 3x).
@@ -46,5 +47,24 @@ public class SeznamVeci {
     // Vrati id vsech predmetu v seznamu
     public Set<String> getIdVeci() {
         return veci.keySet();
+    }
+
+    // Prevede seznam na text pro ulozeni, napr. "mobil:1,rizek:3"
+    public String doTextu() {
+        return veci.keySet().stream()
+                .map(id -> id + ":" + veci.get(id))
+                .collect(Collectors.joining(","));
+    }
+
+    // Smaze vsechno a naplni seznam z ulozeneho textu (opak metody doTextu)
+    public void zTextu(String text) {
+        veci.clear();
+        if (text == null || text.isEmpty()) {
+            return;
+        }
+        for (String polozka : text.split(",")) {
+            String[] casti = polozka.split(":");
+            pridej(casti[0], Integer.parseInt(casti[1]));
+        }
     }
 }

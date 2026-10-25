@@ -24,6 +24,7 @@ public class PrikazNapoveda implements IPrikaz {
                 + "  inventar                   co mas u sebe\n"
                 + "  ukoly                      prehled ukolu\n"
                 + "  napoveda                   tento seznam\n"
+                + "  uloz / nahraj              ulozi / nahraje hru\n"
                 + "  konec                      ukonci hru";
     }
 

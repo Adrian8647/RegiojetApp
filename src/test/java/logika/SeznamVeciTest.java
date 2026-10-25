@@ -31,4 +31,28 @@ public class SeznamVeciTest {
         assertFalse(veci.obsahuje("kelimek"));
         assertTrue(veci.getIdVeci().isEmpty());
     }
+
+    @Test
+    void doTextuAZTextuJsouOpak() {
+        SeznamVeci veci = new SeznamVeci();
+        veci.pridej("mobil");
+        veci.pridej("rizek", 3);
+        assertEquals("mobil:1,rizek:3", veci.doTextu());
+
+        // Z textu musi vzniknout stejny seznam
+        SeznamVeci nactene = new SeznamVeci();
+        nactene.zTextu(veci.doTextu());
+        assertEquals(1, nactene.pocet("mobil"));
+        assertEquals(3, nactene.pocet("rizek"));
+    }
+
+    @Test
+    void prazdnyTextVytvoriPrazdnySeznam() {
+        SeznamVeci veci = new SeznamVeci();
+        veci.pridej("mobil");
+        veci.zTextu("");
+
+        assertTrue(veci.getIdVeci().isEmpty());
+        assertEquals("", veci.doTextu());
+    }
 }

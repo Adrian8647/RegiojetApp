@@ -219,8 +219,16 @@ public class HerniPlan {
         return batoh;
     }
 
+    public Set<String> getStavy() {
+        return stavy;
+    }
+
     public int getPocitadlo() {
         return pocitadlo;
+    }
+
+    public void setPocitadlo(int pocitadlo) {
+        this.pocitadlo = pocitadlo;
     }
 
     public int getLimit() {
