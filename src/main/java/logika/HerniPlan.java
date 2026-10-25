@@ -20,6 +20,7 @@ public class HerniPlan {
     private Map<String, Predmet> predmety = new LinkedHashMap<>();
     private Map<String, Objekt> objekty = new LinkedHashMap<>();
     private Map<String, Postava> postavy = new LinkedHashMap<>();
+    private List<Uloha> ulohy = new ArrayList<>();
     private List<Pravidlo> pravidla = new ArrayList<>();
     private Map<String, String> texty = new HashMap<>();
 
@@ -192,6 +193,10 @@ public class HerniPlan {
 
     public Map<String, Postava> getPostavy() {
         return postavy;
+    }
+
+    public List<Uloha> getUlohy() {
+        return ulohy;
     }
 
     public List<Pravidlo> getPravidla() {

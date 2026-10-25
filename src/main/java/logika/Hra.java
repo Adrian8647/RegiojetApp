@@ -29,6 +29,7 @@ public class Hra {
         prikazy.vlozPrikaz(new PrikazSedni(plan));
         prikazy.vlozPrikaz(new PrikazSchovej(plan));
         prikazy.vlozPrikaz(new PrikazInventar(plan));
+        prikazy.vlozPrikaz(new PrikazUkoly(plan));
         prikazy.vlozPrikaz(new PrikazNapoveda());
         prikazy.vlozPrikaz(new PrikazKonec(plan));
     }

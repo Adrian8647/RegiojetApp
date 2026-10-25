@@ -59,6 +59,12 @@ public class NacitacDat {
             plan.getPostavy().put(c[0], new Postava(c[0], c[1], c[2], c[3], c[4], c[5], c[6]));
         }
 
+        // Ukoly
+        for (String radek : nactiRadky("ulohy.txt")) {
+            String[] c = radek.split(";");
+            plan.getUlohy().add(new Uloha(c[0], c[1], c[2], c[3], c[4]));
+        }
+
         // Pravidla pro pouzij a dej
         for (String radek : nactiRadky("pravidla.txt")) {
             String[] c = radek.split(";");

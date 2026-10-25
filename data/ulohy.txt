@@ -1,0 +1,7 @@
+# Ukoly. Format: id;nazev;zadani;zadavatel;stav_splneni
+# zadavatel = id postavy (ukol se ukaze az po rozhovoru s ni), "-" = hlavni ukol (vidi se hned)
+
+hlavni;Dostan se do Prahy;Nabij mobil driv, nez prijde kontrola, sedni si na sve misto a vystup v Praze.;-;vlak_v_praze
+nabijecka;Ziskej nabijecku;Dej Jardovi rizek a on ti da nabijecku.;jarda;jarda_dal
+kufr;Vyloz kufr;Pomoz pani Marte dat kufr na polici.;marta;kufr_odklizen
+kava;Prines kavu;Prines manazerovi kavu a on uvolni zasuvku.;manazer;zasuvka_volna
