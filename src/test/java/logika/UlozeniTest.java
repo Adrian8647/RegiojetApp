@@ -1,8 +1,11 @@
 package logika;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.AfterEach;
@@ -60,5 +63,34 @@ public class UlozeniTest {
     void nahraniBezUlozeneHry() {
         Hra hra = new Hra();
         assertEquals("Zadna ulozena hra neexistuje.", hra.zpracujPrikaz("nahraj"));
+    }
+
+    @Test
+    void poskozenySouborHruNezmeni() throws IOException {
+        Hra hra = new Hra();
+        hra.zpracujPrikaz("jdi lowcost");
+        hra.zpracujPrikaz("uloz");
+
+        // Pokazi cislo v souboru
+        String obsah = Files.readString(soubor).replace("pocitadlo=0", "pocitadlo=hodne");
+        Files.writeString(soubor, obsah);
+
+        Hra novaHra = new Hra();
+        assertEquals("Ulozena hra je poskozena, nahrat ji nejde.", novaHra.zpracujPrikaz("nahraj"));
+        // Hrac zustal na zacatku, nic se nenahralo napul
+        assertEquals("nastupiste", novaHra.getPlan().getAktualniProstor().getId());
+    }
+
+    @Test
+    void souborSNeznamymPredmetemJePoskozeny() throws IOException {
+        Hra hra = new Hra();
+        hra.zpracujPrikaz("uloz");
+
+        String obsah = Files.readString(soubor).replace("batoh=mobil:1", "batoh=raketa:1");
+        Files.writeString(soubor, obsah);
+
+        Hra novaHra = new Hra();
+        assertEquals("Ulozena hra je poskozena, nahrat ji nejde.", novaHra.zpracujPrikaz("nahraj"));
+        assertFalse(novaHra.getPlan().getBatoh().obsahuje("raketa"));
     }
 }
