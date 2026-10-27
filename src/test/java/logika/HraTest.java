@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testy hry pres prikazy - stejne, jako by je psal hrac.
+ * Testy hry pres prikazy 
  */
 public class HraTest {
 

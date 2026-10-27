@@ -1,9 +1,6 @@
 package logika;
 
-/**
- * Prikaz "zvedni kufr" - hrac vylozi kufr pani Marty na polici
- * a tim otevre cestu do vozu Business.
- */
+
 public class PrikazZvedni implements IPrikaz {
 
     private static final String NAZEV = "zvedni";

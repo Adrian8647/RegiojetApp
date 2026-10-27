@@ -4,9 +4,7 @@ import logika.Hra;
 
 import java.util.Scanner;
 
-/**
- * Spousteci trida. Cte prikazy z klavesnice a vypisuje odpovedi hry.
- */
+
 public class Start {
 
     public static void main(String[] args) {

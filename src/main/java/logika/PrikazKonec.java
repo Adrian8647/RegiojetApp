@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Prikaz "konec" - ukonci hru.
- */
+
 public class PrikazKonec implements IPrikaz {
 
     private static final String NAZEV = "konec";

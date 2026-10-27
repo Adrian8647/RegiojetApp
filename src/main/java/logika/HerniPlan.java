@@ -9,13 +9,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Herni plan drzi cely svet hry (lokality, predmety, postavy...)
- * a taky vsechno, co se behem hrani meni (kde je hrac, co ma u sebe, pocitadlo presunu...).
- */
+
 public class HerniPlan {
 
-    // ---- Data nactena ze souboru ve slozce data (klic je vzdy id) ----
+    // ---- Data nactena ze souboru ve slozce data (klic je vzdy id) ---- 
     private Map<String, Prostor> prostory = new LinkedHashMap<>();
     private Map<String, Predmet> predmety = new LinkedHashMap<>();
     private Map<String, Objekt> objekty = new LinkedHashMap<>();
@@ -24,10 +21,10 @@ public class HerniPlan {
     private List<Pravidlo> pravidla = new ArrayList<>();
     private Map<String, String> texty = new HashMap<>();
 
-    // ---- Stav hry, ktery se meni a uklada ----
+    // ---- Stav hry (meni se a uklada) ----
     private Prostor aktualniProstor;
     private SeznamVeci batoh = new SeznamVeci();        // inventar hrace
-    private Set<String> stavy = new LinkedHashSet<>();  // splnene veci, napr. "najedeny", "kufr_odklizen"
+    private Set<String> stavy = new LinkedHashSet<>();  // splnene veci, napr. najedeny
     private int pocitadlo = 0;                          // kolik presunu uz hrac udelal
     private int limit = 0;                              // kolik presunu ma do kontroly
     private boolean konecHry = false;
@@ -177,7 +174,7 @@ public class HerniPlan {
         return limit - pocitadlo;
     }
 
-    // ---- Gettery a settery ----
+    
 
     public Map<String, Prostor> getProstory() {
         return prostory;

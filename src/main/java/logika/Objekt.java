@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Objekt v lokalite, ktery se neda vzit (kufr, zasuvka, kavovar, sedadlo).
- */
+
 public class Objekt {
 
     private String id;

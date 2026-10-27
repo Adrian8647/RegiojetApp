@@ -1,9 +1,6 @@
 package logika;
 
-/**
- * Prikaz "sedni" - hrac si sedne na sve misto ve voze Standard.
- * S nabitym mobilem prijde stevardka, zkontroluje listek a vlak dojede do Prahy.
- */
+
 public class PrikazSedni implements IPrikaz {
 
     private static final String NAZEV = "sedni";

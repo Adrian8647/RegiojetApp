@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Prikaz "napoveda" - vypise seznam vsech prikazu.
- */
+
 public class PrikazNapoveda implements IPrikaz {
 
     private static final String NAZEV = "napoveda";

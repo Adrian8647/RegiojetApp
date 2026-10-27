@@ -3,9 +3,7 @@ package logika;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Jedna lokalita ve hre (napr. Vuz Standard).
- */
+
 public class Prostor {
 
     private String id;

@@ -1,9 +1,6 @@
 package logika;
 
-/**
- * Prikaz "snez rizek" - hrac se naji (potrebuje to, aby zvedl kufr).
- * Funguje kdekoliv, ale jen jednou.
- */
+
 public class PrikazSnez implements IPrikaz {
 
     private static final String NAZEV = "snez";

@@ -1,9 +1,6 @@
 package logika;
 
-/**
- * Prikaz "dej" - da predmet postave (napr. rizek Jardovi).
- * Co se stane, je napsane v souboru pravidla.txt.
- */
+
 public class PrikazDej implements IPrikaz {
 
     private static final String NAZEV = "dej";

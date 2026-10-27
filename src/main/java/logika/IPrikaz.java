@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Rozhrani, ktere musi splnit kazdy prikaz ve hre.
- */
+
 public interface IPrikaz {
 
     // Provede prikaz a vrati text, ktery se vypise hraci

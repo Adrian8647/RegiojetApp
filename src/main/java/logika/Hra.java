@@ -2,16 +2,14 @@ package logika;
 
 import java.util.Arrays;
 
-/**
- * Hlavni trida hry. Nacte data, vytvori prikazy a zpracovava to, co hrac napise.
- */
+
 public class Hra {
 
     private HerniPlan plan;
     private SeznamPrikazu prikazy;
 
     public Hra() {
-        // Vytvori svet hry z datovych souboru
+        // Vytvori svet z datovych souboru
         plan = new HerniPlan();
         NacitacDat.nacti(plan);
 

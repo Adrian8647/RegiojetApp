@@ -2,9 +2,7 @@ package logika;
 
 import java.util.stream.Collectors;
 
-/**
- * Prikaz "ukoly" - vypise hlavni ukol a ukoly od postav i se stavem.
- */
+
 public class PrikazUkoly implements IPrikaz {
 
     private static final String NAZEV = "ukoly";
@@ -23,7 +21,7 @@ public class PrikazUkoly implements IPrikaz {
                 .collect(Collectors.joining());
     }
 
-    // Jeden radek seznamu, napr. "- Vyloz kufr (pani Marta): ... [aktivni]"
+    // Jeden radek seznamu ukolu
     private String popisUlohy(Uloha uloha) {
         String text = "\n- " + uloha.getNazev();
         if (!uloha.getZadavatel().equals("-")) {

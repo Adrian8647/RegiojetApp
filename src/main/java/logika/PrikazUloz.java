@@ -3,10 +3,7 @@ package logika;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * Prikaz "uloz" - ulozi do souboru vsechno, co se behem hrani meni.
- * Popisy a pravidla se neukladaji, ty se vzdy nactou ze slozky data.
- */
+
 public class PrikazUloz implements IPrikaz {
 
     private static final String NAZEV = "uloz";

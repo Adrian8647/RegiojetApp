@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Prikaz "vezmi" - presune predmet z lokality do inventare.
- */
+
 public class PrikazVezmi implements IPrikaz {
 
     private static final String NAZEV = "vezmi";

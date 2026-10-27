@@ -6,9 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * Testy tridy SeznamVeci (inventar a veci v lokalitach).
- */
+
 public class SeznamVeciTest {
 
     @Test

@@ -6,8 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Seznam veci i s poctem kusu (napr. rizek 3x).
- * Pouziva ho inventar hrace i kazda lokalita.
+ * Seznam veci pouziva inventar i lokality.
  */
 public class SeznamVeci {
 

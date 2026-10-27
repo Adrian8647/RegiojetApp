@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Prikaz "mluv" - rozhovor s postavou. Postava rekne jednu repliku podle stavu hry.
- */
+
 public class PrikazMluv implements IPrikaz {
 
     private static final String NAZEV = "mluv";

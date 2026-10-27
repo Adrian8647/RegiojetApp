@@ -7,9 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Prikaz "nahraj" - nacte ulozenou hru ze souboru a obnovi stav hry.
- */
+
 public class PrikazNahraj implements IPrikaz {
 
     private static final String NAZEV = "nahraj";

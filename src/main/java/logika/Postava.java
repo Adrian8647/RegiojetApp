@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Postava (NPC), se kterou muze hrac mluvit nebo ji neco dat.
- */
+
 public class Postava {
 
     private String id;             // tohle pise hrac (napr. "jarda")
@@ -48,7 +46,7 @@ public class Postava {
         return lokalita;
     }
 
-    // Postava se muze presunout (stevardka prijde na konci do vozu Standard)
+    // Presunuti postavy (stevardka prijde na konci do vozu Standard)
     public void setLokalita(String lokalita) {
         this.lokalita = lokalita;
     }

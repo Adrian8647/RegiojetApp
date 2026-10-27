@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Ukol, ktery hrac plni (hlavni nebo vedlejsi od postavy).
- */
+
 public class Uloha {
 
     private String id;

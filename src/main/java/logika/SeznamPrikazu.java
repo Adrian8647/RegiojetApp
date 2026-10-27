@@ -3,9 +3,7 @@ package logika;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Seznam vsech prikazu, ktere hra zna.
- */
+
 public class SeznamPrikazu {
 
     // Klic je nazev prikazu, hodnota je samotny prikaz

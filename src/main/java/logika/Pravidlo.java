@@ -1,8 +1,7 @@
 package logika;
 
 /**
- * Pravidlo pro prikazy "pouzij" a "dej".
- * Rika, co se stane, kdyz hrac pouzije predmet na objekt nebo ho da postave.
+ * Rika co se stane, kdyz hrac pouzije predmet na objekt nebo ho da postave.
  */
 public class Pravidlo {
 

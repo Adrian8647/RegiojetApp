@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Prikaz "rozhledni se" - znovu vypise popis aktualni lokality.
- */
+
 public class PrikazRozhledni implements IPrikaz {
 
     private static final String NAZEV = "rozhledni";

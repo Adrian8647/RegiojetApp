@@ -1,9 +1,6 @@
 package logika;
 
-/**
- * Prikaz "schovej se" - hrac se schova na WC a ziska presuny navic.
- * Funguje jen na WC a jen jednou za hru.
- */
+
 public class PrikazSchovej implements IPrikaz {
 
     private static final String NAZEV = "schovej";

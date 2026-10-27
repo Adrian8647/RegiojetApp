@@ -1,9 +1,6 @@
 package logika;
 
-/**
- * Prikaz "jdi" - presune hrace do sousedni lokality.
- * Hlida zavrene cesty, pocita presuny a resi vyhru a prohru.
- */
+
 public class PrikazJdi implements IPrikaz {
 
     private static final String NAZEV = "jdi";

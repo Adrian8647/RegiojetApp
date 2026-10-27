@@ -8,9 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/**
- * Testy herniho planu: podminky, efekty pravidel a hledani v aktualni lokalite.
- */
+
 public class HerniPlanTest {
 
     private HerniPlan plan;

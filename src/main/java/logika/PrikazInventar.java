@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Prikaz "inventar" - vypise, co ma hrac u sebe (vcetne poctu rizku a stavu mobilu).
- */
+
 public class PrikazInventar implements IPrikaz {
 
     private static final String NAZEV = "inventar";
@@ -22,7 +20,7 @@ public class PrikazInventar implements IPrikaz {
         String text = "U sebe mas:";
         for (String id : batoh.getIdVeci()) {
             text += "\n- " + plan.getPredmety().get(id).getNazev();
-            // U mobilu se ukaze, jestli je nabity
+            // Ukaze jestli je mobil nabity
             if (id.equals("mobil")) {
                 text += " (" + plan.stavMobilu() + ")";
             }

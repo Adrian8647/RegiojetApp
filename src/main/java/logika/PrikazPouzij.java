@@ -1,9 +1,6 @@
 package logika;
 
-/**
- * Prikaz "pouzij" - pouzije predmet na objekt (napr. kelimek na kavovar).
- * Co se stane, je napsane v souboru pravidla.txt.
- */
+
 public class PrikazPouzij implements IPrikaz {
 
     private static final String NAZEV = "pouzij";

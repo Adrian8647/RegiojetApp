@@ -5,10 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-/**
- * Nacte vsechna herni data ze slozky "data" a postavi z nich svet hry.
- * Novou lokalitu nebo predmet tak pridame jen upravou textovych souboru.
- */
+
 public class NacitacDat {
 
     private static final String SLOZKA = "data/";
@@ -34,7 +31,7 @@ public class NacitacDat {
             plan.getProstory().get(c[0]).pridejVychod(new Vychod(c[1], c[2], c[3]));
         }
 
-        // Predmety - a rovnou se polozi tam, kde maji byt na zacatku
+        // Predmety - prida a polozi tam, kde maji byt na zacatku
         for (String radek : nactiRadky("predmety.txt")) {
             String[] c = radek.split(";");
             plan.getPredmety().put(c[0], new Predmet(c[0], c[1], c[2]));
@@ -76,7 +73,7 @@ public class NacitacDat {
         plan.setLimit(Integer.parseInt(plan.getText("limit")));
     }
 
-    // Precte soubor a vrati jeho radky bez prazdnych radku a komentaru (#)
+    // Precte soubor a vrati jeho radky bez prazdnych radku a komentaru 
     private static List<String> nactiRadky(String soubor) {
         try {
             return Files.readAllLines(Path.of(SLOZKA + soubor)).stream()

@@ -13,10 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-/**
- * Testy ukladani a nahravani hry. Ukladaji se do docasne slozky,
- * aby neprepsaly skutecnou ulozenou hru hrace.
- */
+
 public class UlozeniTest {
 
     @TempDir

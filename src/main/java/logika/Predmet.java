@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Predmet, ktery muze mit hrac v inventari (mobil, rizek, kelimek...).
- */
+
 public class Predmet {
 
     private String id;

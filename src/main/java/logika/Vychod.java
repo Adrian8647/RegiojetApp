@@ -1,9 +1,6 @@
 package logika;
 
-/**
- * Vychod z jedne lokality do druhe.
- * Muze byt zavreny, dokud neplati podminka (napr. kufr_odklizen).
- */
+
 public class Vychod {
 
     private String cil;            // id lokality, kam vychod vede

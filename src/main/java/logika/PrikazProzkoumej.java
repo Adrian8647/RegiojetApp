@@ -1,8 +1,6 @@
 package logika;
 
-/**
- * Prikaz "prozkoumej" - vypise popis predmetu, objektu nebo postavy.
- */
+
 public class PrikazProzkoumej implements IPrikaz {
 
     private static final String NAZEV = "prozkoumej";
