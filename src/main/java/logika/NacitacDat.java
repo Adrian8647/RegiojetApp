@@ -1,14 +1,16 @@
 package logika;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 
 public class NacitacDat {
 
-    private static final String SLOZKA = "data/";
+    private static final String SLOZKA = "/data/";
 
     // Nacte vsechny soubory a naplni herni plan
     public static void nacti(HerniPlan plan) {
@@ -75,13 +77,19 @@ public class NacitacDat {
 
     // Precte soubor a vrati jeho radky bez prazdnych radku a komentaru 
     private static List<String> nactiRadky(String soubor) {
-        try {
-            return Files.readAllLines(Path.of(SLOZKA + soubor)).stream()
+        InputStream vstup = NacitacDat.class.getResourceAsStream(SLOZKA + soubor);
+
+        if (vstup == null) {
+            throw new RuntimeException("Nepodarilo sa načítať súbor: " + SLOZKA + soubor);
+        }
+        try (BufferedReader ctecka = new BufferedReader(
+                new InputStreamReader(vstup, StandardCharsets.UTF_8))) {
+            return ctecka.lines()
                     .filter(radek -> !radek.isBlank())
                     .filter(radek -> !radek.startsWith("#"))
                     .toList();
         } catch (IOException e) {
-            throw new RuntimeException("Nepodarilo se nacist soubor " + SLOZKA + soubor);
+            throw new RuntimeException("Chyba pri čítaní súboru: " + SLOZKA + soubor, e);
         }
     }
 }
