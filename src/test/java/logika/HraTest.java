@@ -68,7 +68,7 @@ public class HraTest {
         assertEquals("Nevladzes, od rana jsi nejedl.", hraj("jdi lowcost", "jdi standard", "zvedni kufr"));
 
         hraj("snez rizek", "zvedni kufr");
-        assertTrue(plan.jeStav("kufr_odklizen"));
+        assertTrue(plan.jeStav(Stav.KUFR_ODKLIZEN));
     }
 
     @Test
@@ -88,7 +88,7 @@ public class HraTest {
                 "zvedni kufr", "jdi business", "pouzij nabijecka zasuvka");
 
         assertEquals("Zasuvka je obsazena.", odpoved);
-        assertFalse(plan.jeStav("mobil_nabity"));
+        assertFalse(plan.jeStav(Stav.MOBIL_NABITY));
     }
 
     @Test

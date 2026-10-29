@@ -23,7 +23,7 @@ public class PrikazMluv implements IPrikaz {
         }
 
         // Zapamatuje si, ze hrac s postavou mluvil (tim dostane jeji ukol)
-        plan.pridejStav("mluvil_" + postava.getId());
+        plan.pridejStav(Stav.zTextu("mluvil_" + postava.getId()));
         return postava.getJmeno() + ": \"" + postava.getReplika(plan) + "\"";
     }
 

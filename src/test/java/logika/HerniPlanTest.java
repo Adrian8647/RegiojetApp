@@ -29,7 +29,7 @@ public class HerniPlanTest {
         assertFalse(plan.platiPodminka("najedeny"));
         assertTrue(plan.platiPodminka("!najedeny"));
 
-        plan.pridejStav("najedeny");
+        plan.pridejStav(Stav.NAJEDENY);
         assertTrue(plan.platiPodminka("najedeny"));
         assertFalse(plan.platiPodminka("!najedeny"));
     }
@@ -39,7 +39,7 @@ public class HerniPlanTest {
         plan.provedEfekty("ziskej:nabijecka,stav:jarda_dal", "rizek");
 
         assertTrue(plan.getBatoh().obsahuje("nabijecka"));
-        assertTrue(plan.jeStav("jarda_dal"));
+        assertTrue(plan.jeStav(Stav.JARDA_DAL));
     }
 
     @Test

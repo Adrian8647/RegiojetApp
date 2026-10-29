@@ -8,13 +8,13 @@ public class Prostor {
 
     private String id;
     private String nazev;
-    private String stavZmeny;     // kdyz tento stav plati, pouzije se popisPoZmene
+    private Stav stavZmeny;       // kdyz tento stav plati, pouzije se popisPoZmene
     private String popis;
     private String popisPoZmene;
     private List<Vychod> vychody = new ArrayList<>();
     private SeznamVeci veci = new SeznamVeci();   // predmety, ktere tu lezi
 
-    public Prostor(String id, String nazev, String stavZmeny, String popis, String popisPoZmene) {
+    public Prostor(String id, String nazev, Stav stavZmeny, String popis, String popisPoZmene) {
         this.id = id;
         this.nazev = nazev;
         this.stavZmeny = stavZmeny;

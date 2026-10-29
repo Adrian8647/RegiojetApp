@@ -7,9 +7,9 @@ public class Uloha {
     private String nazev;
     private String zadani;
     private String zadavatel;      // id postavy, "-" = hlavni ukol
-    private String stavSplneni;    // kdyz tento stav plati, ukol je splneny
+    private Stav stavSplneni;      // kdyz tento stav plati, ukol je splneny
 
-    public Uloha(String id, String nazev, String zadani, String zadavatel, String stavSplneni) {
+    public Uloha(String id, String nazev, String zadani, String zadavatel, Stav stavSplneni) {
         this.id = id;
         this.nazev = nazev;
         this.zadani = zadani;
@@ -24,7 +24,7 @@ public class Uloha {
 
     // Hrac ukol zna, kdyz je hlavni, kdyz uz mluvil se zadavatelem, nebo kdyz ho uz splnil
     public boolean jeZnama(HerniPlan plan) {
-        return zadavatel.equals("-") || plan.jeStav("mluvil_" + zadavatel) || jeSplnena(plan);
+        return zadavatel.equals("-") || plan.jeStav(Stav.zTextu("mluvil_" + zadavatel)) || jeSplnena(plan);
     }
 
     public String getId() {

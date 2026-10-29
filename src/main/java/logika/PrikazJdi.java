@@ -30,7 +30,7 @@ public class PrikazJdi implements IPrikaz {
         }
 
         // Presun se pocita jen ve vlaku (ne z nastupiste) a jen dokud neni mobil nabity
-        boolean pocitaSe = !odkud.getId().equals(plan.getText("start")) && !plan.jeStav("mobil_nabity");
+        boolean pocitaSe = !odkud.getId().equals(plan.getText("start")) && !plan.jeStav(Stav.MOBIL_NABITY);
 
         // Samotny presun
         plan.setAktualniProstor(plan.getProstory().get(vychod.getCil()));

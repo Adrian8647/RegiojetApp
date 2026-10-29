@@ -6,11 +6,11 @@ public class Objekt {
     private String id;
     private String nazev;          // tohle pise hrac (napr. "zasuvka")
     private String lokalita;       // id lokality, kde objekt je
-    private String stavZmeny;
+    private Stav stavZmeny;
     private String popis;
     private String popisPoZmene;
 
-    public Objekt(String id, String nazev, String lokalita, String stavZmeny, String popis, String popisPoZmene) {
+    public Objekt(String id, String nazev, String lokalita, Stav stavZmeny, String popis, String popisPoZmene) {
         this.id = id;
         this.nazev = nazev;
         this.lokalita = lokalita;

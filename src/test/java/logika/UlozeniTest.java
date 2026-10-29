@@ -51,8 +51,8 @@ public class UlozeniTest {
         assertEquals("standard", plan.getAktualniProstor().getId());
         assertTrue(plan.getBatoh().obsahuje("nabijecka"));
         assertEquals(1, plan.getBatoh().pocet("rizek"));
-        assertTrue(plan.jeStav("jarda_dal"));
-        assertTrue(plan.jeStav("najedeny"));
+        assertTrue(plan.jeStav(Stav.JARDA_DAL));
+        assertTrue(plan.jeStav(Stav.NAJEDENY));
         assertEquals(1, plan.getPocitadlo());
     }
 

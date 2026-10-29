@@ -1,11 +1,11 @@
 package logika;
 
-import java.io.IOException;
-import java.util.List;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 
 public class NacitacDat {
@@ -24,7 +24,7 @@ public class NacitacDat {
         // Lokality
         for (String radek : nactiRadky("lokality.txt")) {
             String[] c = radek.split(";");
-            plan.getProstory().put(c[0], new Prostor(c[0], c[1], c[2], c[3], c[4]));
+            plan.getProstory().put(c[0], new Prostor(c[0], c[1], Stav.zTextu(c[2]), c[3], c[4]));
         }
 
         // Vychody - kazdy se prida do lokality, ze ktere vede
@@ -49,19 +49,20 @@ public class NacitacDat {
         // Objekty v lokalitach
         for (String radek : nactiRadky("objekty.txt")) {
             String[] c = radek.split(";");
-            plan.getObjekty().put(c[0], new Objekt(c[0], c[1], c[2], c[3], c[4], c[5]));
+            plan.getObjekty().put(c[0], new Objekt(c[0], c[1], c[2], Stav.zTextu(c[3]), c[4], c[5]));
         }
 
         // Postavy
         for (String radek : nactiRadky("postavy.txt")) {
             String[] c = radek.split(";");
-            plan.getPostavy().put(c[0], new Postava(c[0], c[1], c[2], c[3], c[4], c[5], c[6]));
+                    plan.getPostavy().put(c[0], new Postava(c[0], c[1], c[2], c[3], Stav.zTextu(c[4]), c[5], c[6]));
+
         }
 
         // Ukoly
         for (String radek : nactiRadky("ulohy.txt")) {
             String[] c = radek.split(";");
-            plan.getUlohy().add(new Uloha(c[0], c[1], c[2], c[3], c[4]));
+            plan.getUlohy().add(new Uloha(c[0], c[1], c[2], c[3], Stav.zTextu(c[4])));
         }
 
         // Pravidla pro pouzij a dej

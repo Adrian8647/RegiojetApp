@@ -7,12 +7,12 @@ public class Postava {
     private String jmeno;
     private String popis;
     private String lokalita;       // id lokality, kde postava je
-    private String stavZmeny;      // po splneni tohoto stavu rika postava druhou repliku
+    private Stav stavZmeny;        // po splneni tohoto stavu rika postava druhou repliku
     private String replikaPred;
     private String replikaPo;
 
     public Postava(String id, String jmeno, String popis, String lokalita,
-                   String stavZmeny, String replikaPred, String replikaPo) {
+                   Stav stavZmeny, String replikaPred, String replikaPo) {
         this.id = id;
         this.jmeno = jmeno;
         this.popis = popis;
@@ -25,6 +25,7 @@ public class Postava {
     // Vrati, co postava rekne, podle aktualniho stavu hry
     public String getReplika(HerniPlan plan) {
         if (plan.jeStav(stavZmeny)) {
+
             return replikaPo;
         }
         return replikaPred;

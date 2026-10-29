@@ -25,12 +25,12 @@ public class PrikazSnez implements IPrikaz {
         }
 
         // Druhy rizek uz hrac nesni
-        if (plan.jeStav("najedeny")) {
+        if (plan.jeStav(Stav.NAJEDENY)) {
             return "Uz nevladzes, jsi plny.";
         }
 
         plan.getBatoh().odeber("rizek");
-        plan.pridejStav("najedeny");
+        plan.pridejStav(Stav.NAJEDENY);
         return "Snedl jsi rizek. Mama vari nejlip.";
     }
 

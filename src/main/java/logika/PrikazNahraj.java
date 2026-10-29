@@ -49,7 +49,7 @@ public class PrikazNahraj implements IPrikaz {
         plan.getStavy().clear();
         if (!data.get("stavy").isEmpty()) {
             for (String stav : data.get("stavy").split(",")) {
-                plan.pridejStav(stav);
+                plan.pridejStav(Stav.zTextu(stav));
             }
         }
 
@@ -82,6 +82,17 @@ public class PrikazNahraj implements IPrikaz {
         }
 
         if (!data.containsKey("stavy") || !jeSeznamVeciPlatny(data.get("batoh"))) {
+            return false;
+        }
+
+        // Kazdy ulozeny stav musi ve hre existovat
+        try {
+            if (!data.get("stavy").isEmpty()) {
+                for (String stav : data.get("stavy").split(",")) {
+                    Stav.zTextu(stav);
+                }
+            }
+        } catch (IllegalArgumentException e) {
             return false;
         }
 

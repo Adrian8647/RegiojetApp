@@ -18,14 +18,14 @@ public class PrikazSchovej implements IPrikaz {
         }
 
         // Podruhe uz to nefunguje
-        if (plan.jeStav("wc_pouzito")) {
+        if (plan.jeStav(Stav.WC_POUZITO)) {
             return "Stevardka uz vi, kde te hledat.";
         }
 
         // Limit presunu se zvysi o bonus z texty.txt
         int bonus = Integer.parseInt(plan.getText("bonus_wc"));
         plan.setLimit(plan.getLimit() + bonus);
-        plan.pridejStav("wc_pouzito");
+        plan.pridejStav(Stav.WC_POUZITO);
         return "Zamkl ses na WC a pockal, az stevardka projde kolem. Ziskal jsi " + bonus + " presuny navic.\n"
                 + "Do kontroly zbyva " + plan.getZbyvajiciPresuny() + " presunu.";
     }

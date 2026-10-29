@@ -20,16 +20,16 @@ public class PrikazZvedni implements IPrikaz {
         if (!parametry[0].equals("kufr") || plan.najdiObjektTady("kufr") == null) {
             return "Nic takoveho tu nezvednes.";
         }
-        if (plan.jeStav("kufr_odklizen")) {
+        if (plan.jeStav(Stav.KUFR_ODKLIZEN)) {
             return "Kufr uz lezi na polici.";
         }
 
         // Hladovy hrac kufr neuzvedne
-        if (!plan.jeStav("najedeny")) {
+        if (!plan.jeStav(Stav.NAJEDENY)) {
             return "Nevladzes, od rana jsi nejedl.";
         }
 
-        plan.pridejStav("kufr_odklizen");
+        plan.pridejStav(Stav.KUFR_ODKLIZEN);
         return "Vylozil jsi kufr na polici. Pani Marta dekuje. Cesta do Business je volna.";
     }
 

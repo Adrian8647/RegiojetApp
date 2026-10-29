@@ -16,18 +16,18 @@ public class PrikazSedni implements IPrikaz {
         if (plan.najdiObjektTady("sedadlo") == null) {
             return "Tady nemas kde sedet. Tvoje misto je ve voze Standard.";
         }
-        if (plan.jeStav("vlak_v_praze")) {
+        if (plan.jeStav(Stav.VLAK_V_PRAZE)) {
             return "Vlak uz stoji v Praze. Vystoupit muzes z vozu Low cost.";
         }
 
         // Bez nabiteho mobilu nema hrac listek
-        if (!plan.jeStav("mobil_nabity")) {
+        if (!plan.jeStav(Stav.MOBIL_NABITY)) {
             return "Bez listku si radsi nesedej.";
         }
 
         // Prijde stevardka (presune se sem) a vlak dojede do Prahy
         plan.getPostavy().get("stevardka").setLokalita(plan.getAktualniProstor().getId());
-        plan.pridejStav("vlak_v_praze");
+        plan.pridejStav(Stav.VLAK_V_PRAZE);
         return "Sedl sis na sve misto 45. Prisla stevardka: \"Listky, prosim.\"\n"
                 + "Ukazal jsi listek v nabitem mobilu. Stevardka se usmala a sla dal.\n"
                 + "Cesta ubiha a za par hodin vlak zastavuje na hlavnim nadrazi v Praze.\n"

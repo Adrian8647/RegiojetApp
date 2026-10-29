@@ -26,7 +26,7 @@ public class PrikazUloz implements IPrikaz {
             zapis.println("limit=" + plan.getLimit());
 
             // Vsechny splnene stavy (najedeny, kufr_odklizen, jarda_dal, wc_pouzito...)
-            zapis.println("stavy=" + String.join(",", plan.getStavy()));
+            zapis.println("stavy=" + String.join(",", plan.getStavy().stream().map(stav -> stav.name().toLowerCase()).toList()));
 
             // Predmety, ktere lezi v jednotlivych lokalitach
             for (Prostor prostor : plan.getProstory().values()) {

@@ -24,7 +24,7 @@ public class HerniPlan {
     // ---- Stav hry (meni se a uklada) ----
     private Prostor aktualniProstor;
     private SeznamVeci batoh = new SeznamVeci();        // inventar hrace
-    private Set<String> stavy = new LinkedHashSet<>();  // splnene veci, napr. najedeny
+    private Set<Stav> stavy = new LinkedHashSet<>();    // splnene veci, napr. najedeny
     private int pocitadlo = 0;                          // kolik presunu uz hrac udelal
     private int limit = 0;                              // kolik presunu ma do kontroly
     private boolean konecHry = false;
@@ -35,12 +35,12 @@ public class HerniPlan {
     }
 
     // Zjisti, jestli ve hre plati dany stav
-    public boolean jeStav(String stav) {
+    public boolean jeStav(Stav stav) {
         return stavy.contains(stav);
     }
 
     // Zapise novy stav (napr. hrac se najedl)
-    public void pridejStav(String stav) {
+    public void pridejStav(Stav stav) {
         stavy.add(stav);
     }
 
@@ -50,14 +50,14 @@ public class HerniPlan {
             return true;
         }
         if (podminka.startsWith("!")) {
-            return !jeStav(podminka.substring(1));
+            return !jeStav(Stav.zTextu(podminka.substring(1)));
         }
-        return jeStav(podminka);
+        return jeStav(Stav.zTextu(podminka));
     }
 
     // Vrati "nabity" nebo "vybity" podle stavu mobilu
     public String stavMobilu() {
-        if (jeStav("mobil_nabity")) {
+        if (jeStav(Stav.MOBIL_NABITY)) {
             return "nabity";
         }
         return "vybity";
@@ -109,7 +109,7 @@ public class HerniPlan {
                 batoh.pridej(hodnota);
             } else if (druh.equals("stav")) {
                 // zapise se novy stav hry
-                pridejStav(hodnota);
+                pridejStav(Stav.zTextu(hodnota));
             }
         }
     }
@@ -216,7 +216,7 @@ public class HerniPlan {
         return batoh;
     }
 
-    public Set<String> getStavy() {
+    public Set<Stav> getStavy() {
         return stavy;
     }
 
