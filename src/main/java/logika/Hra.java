@@ -5,14 +5,19 @@ import java.util.Arrays;
 
 public class Hra {
 
-    private HerniPlan plan;
+    private final HerniPlan plan;
     private SeznamPrikazu prikazy;
 
     public Hra() {
         // Vytvori svet z datovych souboru
         plan = new HerniPlan();
-        NacitacDat.nacti(plan);
-
+        try {
+            NacitacDat.nacti(plan);
+        }
+        catch(RuntimeException e){
+            System.err.println(e.getMessage());
+            return;
+        }
         // Vytvori vsechny prikazy (kazdy prikaz je vlastni trida)
         prikazy = new SeznamPrikazu();
         prikazy.vlozPrikaz(new PrikazJdi(plan));
